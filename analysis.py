@@ -15,8 +15,6 @@ i=0
 def remove_date(text):
     newones = []
     stopword = (stopwords.words('english'))
-    newones = ["kuttima", "thatha","roshni", "Roshni", "Rohni", "ROSHU", "Paati", "Roshu", "paati", "roshu", "rohni", "padma", "hectic", "exams"]
-    stopword.extend(newones)
     querywords = text.split()
 
     resultwords  = [word for word in querywords if word.lower() not in stopword]
@@ -25,8 +23,6 @@ def remove_date(text):
     text = re.sub('\[.*?\]', '', text)
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
     text = re.sub('\w*\d\w*', '', text)
-    text = re.sub('roshni', '', text)
-    text = re.sub('paati', '', text)
     text = text.lower()
     #text = re.sub('\\n*', '', text)
     text = text.split(": " or "\n")
